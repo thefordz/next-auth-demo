@@ -10,13 +10,13 @@ const Navbar = () => {
     return (
         <header className="wrapper flex justify-between">
             <Link className='flex items-center' href="/"><span className='text-xl'>Cuszy Auth</span></Link>
-            {session?.user? 
-            <div className="flex flex-row items-center gap-2">
-            <span className="">{session?.user?.name}</span>
-            <Image src={session?.user?.image} alt="user-image" width={50} height={50} className='rounded-full' /> 
-            </div>
-            :
-            <button onClick={() => signIn()} className='button'>Login</button>}
+            {session?.user ?
+                <div className="flex flex-row items-center gap-2">
+                    <Image src={session?.user?.image} alt="user-image" width={50} height={50} className='rounded-full' />
+                    <button onClick={() => signOut()} className='button'>Logout</button>
+                </div>
+                :
+                <button onClick={() => signIn()} className='button'>Login</button>}
         </header>
     )
 }
