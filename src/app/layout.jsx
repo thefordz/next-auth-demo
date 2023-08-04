@@ -2,6 +2,8 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { SessionProvider } from "next-auth/react"
+import Provider from './components/Provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,10 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`inter.className bg-light`}>
-        <Navbar/>
-        {children}
-        <Footer/>
-        </body>
+        <Provider>  
+          <Navbar />
+          {children}
+          <Footer />
+        </Provider>
+      </body>
     </html>
   )
 }
